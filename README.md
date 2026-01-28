@@ -582,8 +582,8 @@ tmux attach-session -t shogun     # Connect to give commands
 ./shutsujin_departure.sh -s       # Create sessions only
 
 # Manually start Claude Code on specific agents
-tmux send-keys -t shogun:0 'claude --dangerously-skip-permissions' Enter
-tmux send-keys -t multiagent:0.0 'claude --dangerously-skip-permissions' Enter
+tmux send-keys -t shogun:0 'ccz --model opus' Enter
+tmux send-keys -t multiagent:0.0 'ccz' Enter
 ```
 
 **Restart After Crash:**
@@ -657,10 +657,10 @@ mcp__memory__read_graph()  ← Works!
 <details>
 <summary><b>Agents asking for permissions?</b></summary>
 
-Make sure to start with `--dangerously-skip-permissions`:
+`ccz` adds `--dangerously-skip-permissions` by default:
 
 ```bash
-claude --dangerously-skip-permissions --system-prompt "..."
+ccz --system-prompt "..."
 ```
 
 </details>

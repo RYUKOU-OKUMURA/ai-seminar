@@ -1,1 +1,74 @@
-queue: []
+queue:
+  - id: cmd_002
+    timestamp: "2026-01-28T20:46:00"
+    command: |
+      【緊急指示】cmd_001の並列化を実行せよ。
+
+      Perplexityセミナー資料作成を、足軽4人で並列実行に切り替えよ。
+
+      【並列タスク割当】
+      - Ashigaru1: Perplexity基本機能・UI解説・基本的な使い方
+      Ashigaru2: Perplexity vs ChatGPT比較・有料版機能・違い
+      Ashigaru3: 実践ユースケース集・便利Tips・活用シーン
+      Ashigaru4: よくある質問・トラブルシューティング・初歩的な質問
+
+      【 coordination 】
+      各足軽は自分の担当範囲を徹底的にリサーチし、markdownで出力せよ。
+      最後に家老が全体を統合して、以下の2ファイルを作成する。
+      - perplexity_slides_outline.md
+      - perplexity_handout.md
+
+      【出力先】
+      /Users/ryukouokumura/Desktop/ai-seminar/outputs/
+
+      【注意】
+      - 並列実行のため、各足軽は独立して作業せよ
+      - 重複があっても気にせず、それぞれの視点で書け
+      - 家老が最後に統合・調整する
+
+      実行開始！
+    project: ai_seminar
+    priority: high
+    status: pending
+  - id: cmd_001
+    timestamp: "2026-01-28T20:38:20"
+    command: |
+      Perplexityのセミナー資料を作成せよ。対象は超生成AI初心者。
+
+      【依頼内容】
+      1. Perplexityの機能と使い方を徹底的にリサーチ
+      2. 以下の資料を作成
+         - スライドアウトライン（プレゼン用）
+         - 配布用ドキュメント（詳細説明）
+
+      【ターゲット】
+      - 超生成AI初心者
+      - AIツールをほとんど使ったことない人
+
+      【リサーチ項目】
+      - Perplexityの基本機能
+      - 便利な使い方・Tips
+      - ChatGPT等との違い
+      - 実用的なユースケース
+      - 有料版の機能（あれば）
+
+      【納品物】
+      1. スライドアウトライン
+         - セクション構成
+         - 各スライドの要点
+         - デモ内容（あれば）
+
+      2. 配布用ドキュメント
+         - 詳しい機能説明
+         - ステップバイステップの使い方
+         - よくある質問
+         - 実践的な例
+
+      【出力先】
+      /Users/ryukouokumura/Desktop/ai-seminar/outputs/ ディレクトリに
+      - perplexity_slides_outline.md
+      - perplexity_handout.md
+      を作成せよ
+    project: ai_seminar
+    priority: high
+    status: pending

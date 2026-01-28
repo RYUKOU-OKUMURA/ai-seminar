@@ -1,0 +1,28 @@
+#!/bin/bash
+# Claude Code launcher for this repository.
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+WORKSPACE_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+cd "$WORKSPACE_DIR"
+
+if ! command -v claude >/dev/null 2>&1; then
+    echo "ccz: Claude Code CLI (claude) が見つかりません。" >&2
+    echo "ccz: npm install -g @anthropic-ai/claude-code を実行してください。" >&2
+    exit 127
+fi
+
+SKIP_FLAG_PRESENT=false
+for arg in "$@"; do
+    if [ "$arg" = "--dangerously-skip-permissions" ]; then
+        SKIP_FLAG_PRESENT=true
+        break
+    fi
+done
+
+DEFAULT_FLAGS=()
+if [ "$SKIP_FLAG_PRESENT" = false ]; then
+    DEFAULT_FLAGS+=(--dangerously-skip-permissions)
+fi
+
+exec claude "${DEFAULT_FLAGS[@]}" "$@"

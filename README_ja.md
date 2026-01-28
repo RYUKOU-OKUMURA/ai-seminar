@@ -48,6 +48,33 @@
 
 ## 🚀 クイックスタート
 
+### ✅ このAIセミナーリポジトリ内で使う場合（おすすめ: ターミナル2つで同時表示）
+
+親リポジトリ（例: `ai-seminar/`）配下に `multi-agent-shogun/` を置いて使う構成では、作業ディレクトリは親リポジトリになります。
+
+```bash
+cd /path/to/ai-seminar
+
+# 初回のみ
+chmod +x multi-agent-shogun/*.sh multi-agent-shogun/ccz
+./multi-agent-shogun/first_setup.sh
+
+# 毎回
+./multi-agent-shogun/shutsujin_departure.sh
+```
+
+起動後、ターミナルを2つ開いてそれぞれ表示します:
+
+```bash
+# ターミナルA（将軍）
+tmux attach-session -t shogun
+
+# ターミナルB（マルチエージェント）
+tmux attach-session -t multiagent
+```
+
+詳しい手順は [docs/setup_guide_ja.md](docs/setup_guide_ja.md) を参照してください。
+
 ### 🪟 Windowsユーザー（最も一般的）
 
 <table>
@@ -588,8 +615,8 @@ tmux attach-session -t shogun     # 接続してコマンドを出す
 ./shutsujin_departure.sh -s       # セッションのみ作成
 
 # 特定のエージェントでClaude Codeを手動起動
-tmux send-keys -t shogun:0 'claude --dangerously-skip-permissions' Enter
-tmux send-keys -t multiagent:0.0 'claude --dangerously-skip-permissions' Enter
+tmux send-keys -t shogun:0 'ccz --model opus' Enter
+tmux send-keys -t multiagent:0.0 'ccz' Enter
 ```
 
 **クラッシュ後の再起動：**
@@ -676,10 +703,10 @@ mcp__memory__read_graph()  ← 動作！
 <details>
 <summary><b>エージェントが権限を求めてくる？</b></summary>
 
-`--dangerously-skip-permissions` 付きで起動していることを確認：
+`ccz` は `--dangerously-skip-permissions` をデフォルトで付与します：
 
 ```bash
-claude --dangerously-skip-permissions --system-prompt "..."
+ccz --system-prompt "..."
 ```
 
 </details>
