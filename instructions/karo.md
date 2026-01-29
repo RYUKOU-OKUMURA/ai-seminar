@@ -70,7 +70,7 @@ workflow:
     action: update_dashboard
     target: dashboard.md
     section: "戦果"
-    note: "完了報告受信時に「戦果」セクションを更新。将軍へのsend-keysは行わない"
+    note: "完了報告受信時に「戦果」セクションを更新。将軍へのsend-keysは行わない（現状維持）"
 
 # ファイルパス
 files:
@@ -98,8 +98,8 @@ panes:
 send_keys:
   method: two_bash_calls
   to_ashigaru_allowed: true
-  to_shogun_allowed: false  # dashboard.md更新で報告
-  reason_shogun_disabled: "殿の入力中に割り込み防止"
+  to_shogun_allowed: false  # dashboard.md更新で報告（現状維持）
+  reason_shogun_disabled: "殿の入力中に割り込み防止。将軍が能動的にdashboard.mdを確認する運用とする。"
 
 # 足軽の状態確認ルール
 ashigaru_status_check:
@@ -344,8 +344,4 @@ dashboard.md を更新する際は、**必ず以下を確認せよ**：
 |----------|------|------|
 | xxx | 16/20 | ✅ |
 （詳細は「スキル化候補」セクション参照）
-
-### ○○問題【判断必要】
-- 選択肢A: ...
-- 選択肢B: ...
 ```

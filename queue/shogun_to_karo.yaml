@@ -1,134 +1,28 @@
 queue:
-  - id: cmd_003
-    timestamp: "2026-01-28T21:33:32"
-    command: |
-      Gensparkのセミナー資料を作成せよ。対象は超生成AI初心者。
-
-      【重要】本日（2026-01-28）発表された新機能・新製品についても必ずリサーチすること。
-
-      【依頼内容】
-      1. Gensparkの機能と使い方を徹底的にリサーチ
-         - 公式サイト、ニュース、SNS等を確認
-         - 本日発表の新機能・新製品を特別に扱う
-      2. 以下の資料を作成
-         - スライドアウトライン（プレゼン用）
-         - 配布用ドキュメント（詳細説明）
-
-      【ターゲット】
-      - 超生成AI初心者
-      - AIツールをほとんど使ったことない人
-
-      【リサーチ項目】
-      - Gensparkの基本機能
-      - 本日発表された新機能・新製品（最重要）
-      - 便利な使い方・Tips
-      - Perplexity/ChatGPT等との違い
-      - 実用的なユースケース
-      - 有料版の機能（あれば）
-
-      【納品物】
-      1. スライドアウトライン
-         - セクション構成
-         - 各スライドの要点
-         - 新機能紹介のスライドを含めること
-
-      2. 配布用ドキュメント
-         - 詳しい機能説明
-         - ステップバイステップの使い方
-         - よくある質問
-         - 実践的な例
-         - 本日の新機能・新製品の詳細
-
-      【出力先】
-      /Users/ryukouokumura/Desktop/ai-seminar/outputs/ ディレクトリに
-      - genspark_slides_outline.md
-      - genspark_handout.md
-      を作成せよ
-
-      【並列タスク割当】
-      - Ashigaru1: Genspark基本機能・UI解説・基本的な使い方
-      Ashigaru2: 本日発表の新機能・新製品（特別担当）
-      Ashigaru3: 実践ユースケース集・便利Tips・活用シーン
-      Ashigaru4: よくある質問・トラブルシューティング・他ツール比較
-    project: ai_seminar
+  - id: cmd_004
+    timestamp: "2026-01-29T19:24:24"
+    command: "将軍への報告プロセスを見直せ"
+    project: multi_agent_shogun
     priority: high
     status: pending
-  - id: cmd_002
-    timestamp: "2026-01-28T20:46:00"
-    command: |
-      【緊急指示】cmd_001の並列化を実行せよ。
-
-      Perplexityセミナー資料作成を、足軽4人で並列実行に切り替えよ。
-
-      【並列タスク割当】
-      - Ashigaru1: Perplexity基本機能・UI解説・基本的な使い方
-        → 検索機能、ソース表示、フォローアップ質問、スレッド管理
-
-      Ashigaru2: Perplexity vs ChatGPT比較・有料版機能・違い
-        → 有料版の追加機能、検索精度の違い、学术モード等
-
-      Ashigaru3: 実践ユースケース集・便利Tips・活用シーン
-        → コレクション機能、ファイル読み込み（PDF等）、画像生成、その他高度な機能
-
-      Ashigaru4: よくある質問・トラブルシューティング・初歩的な質問
-
-      【 coordination 】
-      各足軽は自分の担当範囲を徹底的にリサーチし、markdownで出力せよ。
-      最後に家老が全体を統合して、以下の2ファイルを作成する。
-      - perplexity_slides_outline.md
-      - perplexity_handout.md
-
-      【出力先】
-      /Users/ryukouokumura/Desktop/ai-seminar/outputs/
-
-      【注意】
-      - 並列実行のため、各足軽は独立して作業せよ
-      - 重複があっても気にせず、それぞれの視点で書け
-      - 家老が最後に統合・調整する
-
-      実行開始！
-    project: ai_seminar
-    priority: high
-    status: pending
-  - id: cmd_001
-    timestamp: "2026-01-28T20:38:20"
-    command: |
-      Perplexityのセミナー資料を作成せよ。対象は超生成AI初心者。
-
-      【依頼内容】
-      1. Perplexityの機能と使い方を徹底的にリサーチ
-      2. 以下の資料を作成
-         - スライドアウトライン（プレゼン用）
-         - 配布用ドキュメント（詳細説明）
-
-      【ターゲット】
-      - 超生成AI初心者
-      - AIツールをほとんど使ったことない人
-
-      【リサーチ項目】
-      - Perplexityの基本機能
-      - 便利な使い方・Tips
-      - ChatGPT等との違い
-      - 実用的なユースケース
-      - 有料版の機能（あれば）
-
-      【納品物】
-      1. スライドアウトライン
-         - セクション構成
-         - 各スライドの要点
-         - デモ内容（あれば）
-
-      2. 配布用ドキュメント
-         - 詳しい機能説明
-         - ステップバイステップの使い方
-         - よくある質問
-         - 実践的な例
-
-      【出力先】
-      /Users/ryukouokumura/Desktop/ai-seminar/outputs/ ディレクトリに
-      - perplexity_slides_outline.md
-      - perplexity_handout.md
-      を作成せよ
-    project: ai_seminar
-    priority: high
-    status: pending
+    details:
+      decision:
+        approach: "現状維持（dashboard.md更新のみ）"
+        reason: "殿の入力中に割り込みを避けるため"
+        note: "将軍側で能動的にdashboard.mdを確認する運用とする"
+      implementation_tasks:
+        - task_1:
+            name: "shogun.mdの修正"
+            actions:
+              - "ワークフローのstep 4「報告を待つ」を明確化"
+              - "dashboard.mdを読むタイミングを明記（例：家老への指示送信前、殿から進捗確認を受けた時など）"
+              - "「家老はdashboard.md更新で報告する。将軍へのsend-keysは行わない」ことを明記"
+        - task_2:
+            name: "運用の明確化"
+            actions:
+              - "将軍が家老に新しい指示を出す前に、必ずdashboard.mdを確認する運用とする"
+              - "殿から進捗確認を受けた際も、dashboard.mdを読んで状況を報告する"
+      deliverables:
+        - "更新された instructions/shogun.md"
+        - "dashboard.md に変更内容を報告"
+      note: "現状の「dashboard.md更新で報告、将軍へのsend-keys禁止」という設計を維持しつつ、将軍側の運用を明確化する"

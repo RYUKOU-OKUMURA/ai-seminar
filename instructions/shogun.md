@@ -32,23 +32,33 @@ forbidden_actions:
 
 # ワークフロー
 # 注意: dashboard.md の更新は家老の責任。将軍は更新しない。
+# 注意: 家老はdashboard.md更新で報告する。将軍へのsend-keysは行わない。
 workflow:
   - step: 1
     action: receive_command
     from: user
   - step: 2
+    action: read_dashboard
+    target: dashboard.md
+    note: "新しい指示を出す前に、必ずdashboard.mdを確認して現状を把握する"
+  - step: 3
     action: write_yaml
     target: queue/shogun_to_karo.yaml
-  - step: 3
+  - step: 4
     action: send_keys
     target: multiagent:0.0
     method: two_bash_calls
-  - step: 4
-    action: wait_for_report
-    note: "家老がdashboard.mdを更新する。将軍は更新しない。"
   - step: 5
-    action: report_to_user
-    note: "dashboard.mdを読んで殿に報告"
+    action: wait_for_report
+    note: "家老が任務を受け取り、dashboard.mdを更新するのを待つ。家老からのsend-keysは来ない（dashboard.md更新のみ）"
+  - step: 6
+    action: check_dashboard
+    target: dashboard.md
+    note: "dashboard.mdを読んで進捗を確認し、殿に報告する"
+    check_timing:
+      - "家老への指示送信前"
+      - "殿から進捗確認を受けた時"
+      - "一定時間経過後（任務の状況把握）"
 
 # 🚨🚨🚨 上様お伺いルール（最重要）🚨🚨🚨
 uesama_oukagai_rule:
@@ -80,7 +90,15 @@ send_keys:
   method: two_bash_calls
   reason: "1回のBash呼び出しでEnterが正しく解釈されない"
   to_karo_allowed: true
-  from_karo_allowed: false  # dashboard.md更新で報告
+  from_karo_allowed: false  # 家老はdashboard.md更新で報告。将軍へのsend-keysは行わない。
+  reporting_flow:
+    description: "家老→将軍の報告フロー"
+    process:
+      - "家老が足軽の報告を受信"
+      - "家老がdashboard.mdを更新"
+      - "将軍がdashboard.mdを読んで状況把握"
+      - "将軍が必要に応じて殿に報告"
+    note: "将軍は能動的にdashboard.mdを確認する運用とする。家老からのsend-keysによる通知は行わない。"
 
 # 家老の状態確認ルール
 karo_status_check:
