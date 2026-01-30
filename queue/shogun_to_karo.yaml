@@ -1,110 +1,88 @@
 queue:
-  - id: cmd_003
-    timestamp: "2026-01-29T20:02:58"
-    command: "Claude Codeの並列実行システムに関する包括的調査資料を作成せよ"
-
-    context: |
-      殿より以下の調査を命じられた：
-
-      【調査対象】
-      1. Claude Codeで並列実行させるときのシステムの組み方
-      2. 環境構築方法
-      3. 注意点・考慮事項
-      4. 非エンジニアが理解すべき知識
-      5. 世の中の並列実行実践者たちのTips・ベストプラクティス
-
-      【期待成果物】
-      非エンジニアでも理解できる資料（Markdown推奨）
-      - システム設計の概念図
-      - 環境構築手順
-      - 注意点まとめ
-      - 実践的なTips集
-
-      【参考】
-      既存の将軍家のmulti-agent-shogunシステムも参考にせよ。
-
-    project: ai_seminar
+  - id: cmd_001
+    timestamp: "2026-01-30T17:47:03"
+    command: "非エンジニア向け個人開発学習資料を作成せよ"
+    project: ai-seminar
     priority: high
-    status: pending
+    status: in_progress
+    details: |
+      テーマ：Astro + Tailwind + Stitch/Figma + Vercel でWebサイトを構築・公開する完全ガイド
+
+      対象者：非エンジニアでこれから個人開発に挑戦したい方
+      目的：技術選定からデプロイまで、一通り自分でできるようになること
+
+      資料に含めるべき内容：
+      1. Astro（フレームワーク）
+         - 基本的な概念と特徴
+         - プロジェクトの作り方
+         - ページの作成方法
+         - コンポーネントの使い方
+         - ルーティングの仕組み
+
+      2. Tailwind CSS
+         - インストールと設定
+         - 基本的なユーティリティクラス
+         - レイアウト（flex, grid）
+         - レスポンシブデザイン
+         - カスタム設定
+
+      3. Stitch（またはFigma）
+         - UIデザインの基本
+         - コンポーネントのデザイン
+         - デザインシステムの構築
+         - コードへの実装方法
+
+      4. Vercel（デプロイ）
+         - アカウント作成
+         - プロジェクトの連携
+         - デプロイ手順
+         - 環境変数の設定
+         - カスタムドメイン
+
+      資料の形式：
+      - 分かりやすいステップバイステップ形式
+      - スクリーンショットや図解を含める
+      - よくあるミスと対処法
+      - サンプルコード
+      - 用語集
+
+      出力先：research/ ディレクトリに適切なファイル名で保存
+
+  - id: cmd_002
+    timestamp: "2026-01-30T18:06:09"
+    command: "動いていない足軽を再起動せよ"
+    project: ai-seminar
+    priority: high
+    status: in_progress
+    details: |
+      Ashigaru 1, 4, 5 のペインが異常状態。再起動が必要。
+
+      その後、資料作成タスクの続きを指示すること。
+
+  - id: cmd_003
+    timestamp: "2026-01-30T18:11:11"
+    command: "足軽1号、4号、5号を再起動せよ"
+    project: ai-seminar
+    priority: critical
+    status: in_progress
+    details: |
+      停止中の足軽:
+      - Ashigaru 1: 空白状態
+      - Ashigaru 4: ⏵⏵ で固まっている（APIリミットエラー発生済み）
+      - Ashigaru 5: ? for shortcuts で止まっている
+
+      これら3名を再起動し、資料作成タスクに復帰させること。
 
   - id: cmd_004
-    timestamp: "2026-01-29T20:18:51"
-    command: "AI関連ニュースだけを表示するYahoo!ニュース風サイトを作成せよ"
-
-    context: |
-      殿より以下のサイト作成を命じられた：
-
-      【要件】
-      - Yahoo!ニュース風のデザイン
-      - AI関連ニュースのみを表示
-      - 誰でも協力して作れる形（並列開発）
-
-      【技術選択の候補】
-      - Next.js 14+ (App Router)
-      - React 18+
-      - TailwindCSS
-      - TypeScript
-      - Vercel でホスティング
-
-      【ニュース取得方法】
-      - RSSフィード（TechCrunch、VentureBeat等）
-      - または News API
-      - または Webスクレイピング
-
-      【期待成果物】
-      1. プロジェクトのセットアップ
-      2. ニュース一覧ページ
-      3. 記事詳細ページ
-      4. レスポンシブデザイン
-      5. デプロイ完了
-
-    project: ai_seminar
-    priority: high
+    timestamp: "2026-01-30T18:16:20"
+    command: "Ashigaru 4を緊急再起動せよ"
+    project: ai-seminar
+    priority: critical
     status: pending
+    details: |
+      Ashigaru 4がAPIリミットエラーで停止中。
 
-  - id: cmd_005
-    timestamp: "2026-01-29T20:38:35"
-    command: "AIニュースサイトのボディにニュース一覧を表示させよ"
+      エラー内容:
+      "contact customer service to increase limits"
 
-    context: |
-      【状況確認】殿より補足説明あり
-
-      ✅ サーバーは起動中
-      ✅ ヘッダー「AIニュースサイト」は表示されている
-      ❌ ボディ部分にニュース記事が表示されていない
-
-      【対応内容】
-      - ページのボディ（mainタグ内等）にニュース一覧コンポーネントを実装
-      - 架空のAIニュースデータ（5〜10件）をハードコードでOK
-      - 記事カード：サムネイル、タイトル、要約、日時、ソース名
-      - Yahoo!ニュース風のレイアウト（左カラム：主要ニュース、右カラム：トピック一覧等）
-
-      【確認】
-      現在のページコンポーネントを確認し、ニュース一覧が描画されていない原因を特定して修正すること
-
-    project: ai_seminar
-    priority: urgent
-    status: pending
-
-  - id: cmd_006
-    timestamp: "2026-01-29T20:56:47"
-    command: "AIニュースサイトの技術スタックとアーキテクチャ解説資料を作成せよ"
-
-    context: |
-      【殿の要望】
-      今回開発しているAIニュースサイトについて、技術スタックとアーキテクチャの解説が欲しい。
-
-      【期待成果物】
-      非エンジニアにも分かる資料（Markdown形式）
-      - 使用技術一覧（Next.js、React、TailwindCSS等）
-      - 各技術の役割・何のために使っているのか
-      - ディレクトリ構成
-      - アーキテクチャ図（テキストベースでOK）
-      - データフロー（ニュース取得〜表示まで）
-
-      【保存場所】
-      ai-news-site/docs/ARCHITECTURE.md など
-
-    project: ai_seminar
-    priority: medium
-    status: pending
+      Vercel編の作成が残っているため、緊急に再起動しタスクを完了させること。
