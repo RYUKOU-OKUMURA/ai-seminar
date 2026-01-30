@@ -1,28 +1,110 @@
 queue:
-  - id: cmd_004
-    timestamp: "2026-01-29T19:24:24"
-    command: "将軍への報告プロセスを見直せ"
-    project: multi_agent_shogun
+  - id: cmd_003
+    timestamp: "2026-01-29T20:02:58"
+    command: "Claude Codeの並列実行システムに関する包括的調査資料を作成せよ"
+
+    context: |
+      殿より以下の調査を命じられた：
+
+      【調査対象】
+      1. Claude Codeで並列実行させるときのシステムの組み方
+      2. 環境構築方法
+      3. 注意点・考慮事項
+      4. 非エンジニアが理解すべき知識
+      5. 世の中の並列実行実践者たちのTips・ベストプラクティス
+
+      【期待成果物】
+      非エンジニアでも理解できる資料（Markdown推奨）
+      - システム設計の概念図
+      - 環境構築手順
+      - 注意点まとめ
+      - 実践的なTips集
+
+      【参考】
+      既存の将軍家のmulti-agent-shogunシステムも参考にせよ。
+
+    project: ai_seminar
     priority: high
     status: pending
-    details:
-      decision:
-        approach: "現状維持（dashboard.md更新のみ）"
-        reason: "殿の入力中に割り込みを避けるため"
-        note: "将軍側で能動的にdashboard.mdを確認する運用とする"
-      implementation_tasks:
-        - task_1:
-            name: "shogun.mdの修正"
-            actions:
-              - "ワークフローのstep 4「報告を待つ」を明確化"
-              - "dashboard.mdを読むタイミングを明記（例：家老への指示送信前、殿から進捗確認を受けた時など）"
-              - "「家老はdashboard.md更新で報告する。将軍へのsend-keysは行わない」ことを明記"
-        - task_2:
-            name: "運用の明確化"
-            actions:
-              - "将軍が家老に新しい指示を出す前に、必ずdashboard.mdを確認する運用とする"
-              - "殿から進捗確認を受けた際も、dashboard.mdを読んで状況を報告する"
-      deliverables:
-        - "更新された instructions/shogun.md"
-        - "dashboard.md に変更内容を報告"
-      note: "現状の「dashboard.md更新で報告、将軍へのsend-keys禁止」という設計を維持しつつ、将軍側の運用を明確化する"
+
+  - id: cmd_004
+    timestamp: "2026-01-29T20:18:51"
+    command: "AI関連ニュースだけを表示するYahoo!ニュース風サイトを作成せよ"
+
+    context: |
+      殿より以下のサイト作成を命じられた：
+
+      【要件】
+      - Yahoo!ニュース風のデザイン
+      - AI関連ニュースのみを表示
+      - 誰でも協力して作れる形（並列開発）
+
+      【技術選択の候補】
+      - Next.js 14+ (App Router)
+      - React 18+
+      - TailwindCSS
+      - TypeScript
+      - Vercel でホスティング
+
+      【ニュース取得方法】
+      - RSSフィード（TechCrunch、VentureBeat等）
+      - または News API
+      - または Webスクレイピング
+
+      【期待成果物】
+      1. プロジェクトのセットアップ
+      2. ニュース一覧ページ
+      3. 記事詳細ページ
+      4. レスポンシブデザイン
+      5. デプロイ完了
+
+    project: ai_seminar
+    priority: high
+    status: pending
+
+  - id: cmd_005
+    timestamp: "2026-01-29T20:38:35"
+    command: "AIニュースサイトのボディにニュース一覧を表示させよ"
+
+    context: |
+      【状況確認】殿より補足説明あり
+
+      ✅ サーバーは起動中
+      ✅ ヘッダー「AIニュースサイト」は表示されている
+      ❌ ボディ部分にニュース記事が表示されていない
+
+      【対応内容】
+      - ページのボディ（mainタグ内等）にニュース一覧コンポーネントを実装
+      - 架空のAIニュースデータ（5〜10件）をハードコードでOK
+      - 記事カード：サムネイル、タイトル、要約、日時、ソース名
+      - Yahoo!ニュース風のレイアウト（左カラム：主要ニュース、右カラム：トピック一覧等）
+
+      【確認】
+      現在のページコンポーネントを確認し、ニュース一覧が描画されていない原因を特定して修正すること
+
+    project: ai_seminar
+    priority: urgent
+    status: pending
+
+  - id: cmd_006
+    timestamp: "2026-01-29T20:56:47"
+    command: "AIニュースサイトの技術スタックとアーキテクチャ解説資料を作成せよ"
+
+    context: |
+      【殿の要望】
+      今回開発しているAIニュースサイトについて、技術スタックとアーキテクチャの解説が欲しい。
+
+      【期待成果物】
+      非エンジニアにも分かる資料（Markdown形式）
+      - 使用技術一覧（Next.js、React、TailwindCSS等）
+      - 各技術の役割・何のために使っているのか
+      - ディレクトリ構成
+      - アーキテクチャ図（テキストベースでOK）
+      - データフロー（ニュース取得〜表示まで）
+
+      【保存場所】
+      ai-news-site/docs/ARCHITECTURE.md など
+
+    project: ai_seminar
+    priority: medium
+    status: pending
